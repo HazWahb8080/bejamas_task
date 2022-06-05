@@ -3,14 +3,9 @@ import { useRecoilState, useRecoilValue } from "recoil";
 import { AddedToCartState, OpenCartState } from "../../atoms/AddedToCart";
 import { product } from "../../typings";
 
-interface Props {
-  product: product;
-}
-  interface addedtoCart {
-    addedtoCart : string[];
-  }
 
-function ProductItem({ product }: Props) {
+
+function ProductItem({ product }) {
   const { name, bestseller, category, currency, image, price } = product.data(); //destructring
   const [view, setView] = useState(false); // handling the display of add to cart badge on hover
   const [addedtoCart, setAddedtoCart] = useRecoilState(AddedToCartState);
@@ -36,7 +31,7 @@ function ProductItem({ product }: Props) {
         {view && (
           <div
             onClick={() => {
-              setAddedtoCart<addedtoCart>([...addedtoCart, product.data()]),
+              setAddedtoCart([...addedtoCart, product.data()]),
                 setOpenCart(true);
             }}
             className=" cursor-pointer center flex absolute bottom-0 w-full  z-50 bg-black text-white py-3 px-6 font-medium"

@@ -26,11 +26,11 @@ function ProductItem({ product }: Props) {
         onMouseLeave={() => setView(false)}
       >
         <img
-          src={product.data().image.src ? product.data().image.src : image}
+          src={product.data().image.src! ? product.data().image.src! : image!}
           alt={
-            product.data().image.alt
-              ? product.data().image.alt
-              : product.data().name
+            product.data().image.alt!
+              ? product.data().image.alt!
+              : product.data().name!
           }
           className=" w-full h-[500px] object-cover object-center group hover:scale-110 smooth "
         />

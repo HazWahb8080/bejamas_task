@@ -27,7 +27,11 @@ function ProductItem({ product }: Props) {
       >
         <img
           src={product.data().image.src ? product.data().image.src : image}
-          alt={product.data().image.alt ? product.data().image.alt : product.data().name}
+          alt={
+            product.data().image.alt
+              ? product.data().image.alt
+              : product.data().name
+          }
           className=" w-full h-[500px] object-cover object-center group hover:scale-110 smooth "
         />
         {view && (

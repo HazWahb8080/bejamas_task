@@ -6,13 +6,14 @@ import { product } from "../../typings";
 interface Props {
   product: product;
 }
-interface addedtocart { 
-  addedtoCart : string[];
-}
+  interface addedtoCart {
+    addedtoCart : string[];
+  }
+
 function ProductItem({ product }: Props) {
   const { name, bestseller, category, currency, image, price } = product.data(); //destructring
   const [view, setView] = useState(false); // handling the display of add to cart badge on hover
-  const [addedtoCart, setAddedtoCart] = useRecoilState<addedtocart>(AddedToCartState);
+  const [addedtoCart, setAddedtoCart] = useRecoilState(AddedToCartState);
   const [openCart, setOpenCart] = useRecoilState(OpenCartState);
   return (
     <div className="flex flex-col start w-[80%] space-y-1 relative">
@@ -35,7 +36,7 @@ function ProductItem({ product }: Props) {
         {view && (
           <div
             onClick={() => {
-              setAddedtoCart([...addedtoCart, product.data()]),
+              setAddedtoCart<addedtoCart>([...addedtoCart, product.data()]),
                 setOpenCart(true);
             }}
             className=" cursor-pointer center flex absolute bottom-0 w-full  z-50 bg-black text-white py-3 px-6 font-medium"

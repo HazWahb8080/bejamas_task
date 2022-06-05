@@ -37,7 +37,7 @@ export interface product {
     image: {
       alt: string;
       src: string;
-    };
+    }
     name: string;
     price: number;
   };

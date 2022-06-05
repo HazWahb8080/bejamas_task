@@ -26,14 +26,15 @@ function ProductItem({ product }: Props) {
         onMouseLeave={() => setView(false)}
       >
         <img
-          src={image.src ? image.src : image}
-          alt={image.alt ? image.alt : name}
+          src={product.data().image.src ? product.data().image.src : image}
+          alt={product.data().image.alt ? product.data().image.alt : product.data().name}
           className=" w-full h-[500px] object-cover object-center group hover:scale-110 smooth "
         />
         {view && (
           <div
             onClick={() => {
-              setAddedtoCart([...addedtoCart, product.data()]), setOpenCart(true);
+              setAddedtoCart([...addedtoCart, product.data()]),
+                setOpenCart(true);
             }}
             className=" cursor-pointer center flex absolute bottom-0 w-full  z-50 bg-black text-white py-3 px-6 font-medium"
           >

@@ -26,12 +26,8 @@ function ProductItem({ product }: Props) {
         onMouseLeave={() => setView(false)}
       >
         <img
-          src={product.data().image.src! ? product.data().image.src! : image!}
-          alt={
-            product.data().image.alt!
-              ? product.data().image.alt!
-              : product.data().name!
-          }
+          src={product.data().image.src}
+          alt={ product.data().image.alt}
           className=" w-full h-[500px] object-cover object-center group hover:scale-110 smooth "
         />
         {view && (

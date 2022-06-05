@@ -35,9 +35,9 @@ export interface product {
       recommendations: [];
     };
     image: {
-      alt: string;
-      src: string;
-    }
+      alt: string | undefined;
+      src: string | undefined;
+    };
     name: string;
     price: number;
   };

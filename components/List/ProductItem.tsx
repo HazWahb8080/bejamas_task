@@ -6,11 +6,13 @@ import { product } from "../../typings";
 interface Props {
   product: product;
 }
-
+interface addedtocart { 
+  addedtoCart : string[];
+}
 function ProductItem({ product }: Props) {
   const { name, bestseller, category, currency, image, price } = product.data(); //destructring
   const [view, setView] = useState(false); // handling the display of add to cart badge on hover
-  const [addedtoCart, setAddedtoCart] = useRecoilState(AddedToCartState);
+  const [addedtoCart, setAddedtoCart] = useRecoilState<addedtocart>(AddedToCartState);
   const [openCart, setOpenCart] = useRecoilState(OpenCartState);
   return (
     <div className="flex flex-col start w-[80%] space-y-1 relative">

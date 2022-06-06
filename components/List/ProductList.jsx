@@ -24,8 +24,11 @@ function ProductList() {
   const [productsPerPage, setProductsPerPage] = useState(5);
   let indexOfLastProduct = currentPage * productsPerPage;
   let indexOfFirstProduct = indexOfLastProduct - productsPerPage;
-  let currentProducts = products.slice(indexOfFirstProduct, indexOfLastProduct);
-  let range = Number((products.length % productsPerPage) + 1);
+  let currentProducts = products?.slice(
+    indexOfFirstProduct,
+    indexOfLastProduct
+  );
+  let range = Number((products?.length % productsPerPage) + 1);
 
   // filters
   const [filters, setFilters] = useState([]);

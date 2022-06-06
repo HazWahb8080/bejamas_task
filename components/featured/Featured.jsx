@@ -12,7 +12,7 @@ import { featured } from "../../typings";
 import { AddedToCartState, OpenCartState } from "../../atoms/AddedToCart";
 
 function Featured() {
-  const [featuredProductData, setFeaturedProductData] = useState<featured>([]);
+  const [featuredProductData, setFeaturedProductData] = useState([]);
   const featured = featuredProductData[0];
   const [addedtoCart, setAddedtoCart] = useRecoilState(AddedToCartState);
   const [openCart, setOpenCart] = useRecoilState(OpenCartState);
@@ -25,7 +25,7 @@ function Featured() {
         limit(1)
       ),
       (snapshot) => {
-        setFeaturedProductData<featured>(
+        setFeaturedProductData(
           snapshot.docs.map((doc) => {
             return doc.data();
           })

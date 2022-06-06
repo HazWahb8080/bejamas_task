@@ -2,7 +2,12 @@ import React from "react";
 import { product } from "../../typings";
 
 interface Props {
-  item: product;
+  item: item;
+}
+interface item {
+  name: string;
+  image: { src: string; alt: string };
+  price: number;
 }
 
 function CartItem({ item }: Props) {
@@ -15,11 +20,11 @@ function CartItem({ item }: Props) {
       </div>
       <div className="flex center">
         <img
-          src={image.src ? image.src : image}
+          src={image.src}
+          alt={image.alt}
           className="w-24 h-24 center object-cover object-center"
         />
       </div>
-      
     </div>
   );
 }

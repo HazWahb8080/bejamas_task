@@ -8,7 +8,6 @@ import {
 import React, { useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
 import { db } from "../../firebase";
-import { featured } from "../../typings";
 import { AddedToCartState, OpenCartState } from "../../atoms/AddedToCart";
 
 function Featured() {

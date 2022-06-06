@@ -1,7 +1,6 @@
 import { collection, onSnapshot } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
 import { db } from "../../firebase";
-import { product } from "../../typings";
 import ProductItem from "./ProductItem";
 import {
   SwitchVerticalIcon,

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { AddedToCartState, OpenCartState } from "../../atoms/AddedToCart";
-import { product } from "../../typings";
 
 
 

@@ -6,8 +6,8 @@ import { ActivePriceFilterState } from "../../atoms/ActivePriceFilter";
 interface Props {
   label: string;
   i: number;
-  max: number | null;
-  min: number | null;
+  max: any;
+  min: any;
 }
 
 function PriceCheck({ label, i, max, min }: Props) {

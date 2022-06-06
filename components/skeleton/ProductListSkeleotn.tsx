@@ -3,7 +3,7 @@ import ProductItemSkeleton from "./ProductItemSkeleton";
 import { product } from "../../typings";
 
 interface Props {
-  currentProducts: Array;
+  currentProducts: Array<product>;
 }
 
 function ProductListSkeleotn({ currentProducts }: Props) {

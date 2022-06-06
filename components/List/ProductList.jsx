@@ -16,9 +16,9 @@ import { useRecoilState } from "recoil";
 import { ActivePriceFilterState } from "../../atoms/ActivePriceFilter";
 
 function ProductList() {
-  const [products, setProducts] = useState<product>([]);
-  let categories: Array = [];
-  let [cleansedCategories, setcleansedCategories] = useState<product>([]);
+  const [products, setProducts] = useState();
+  let categories = [];
+  let [cleansedCategories, setcleansedCategories] = useState([]);
 
   // for pagination
   const [currentPage, setCurrentPage] = useState(1);
@@ -36,7 +36,7 @@ function ProductList() {
   );
   const [openMiniFilters, setOpenMiniFilters] = useState(false);
 
-  const handleFilterCheck = (e: string) => {
+  const handleFilterCheck = (e) => {
     setLoading(true);
     filters.push(e.target.value);
     setTimeout(() => {
@@ -54,14 +54,14 @@ function ProductList() {
   // fetching the whole products
   useEffect(() => {
     onSnapshot(collection(db, "products"), (snapshot) => {
-      setProducts<product>(snapshot.docs);
+      setProducts(snapshot.docs);
     });
   }, []);
 
   // getting categories for filters section and clean it up
   //built in another useEffect block to solve the problem of not immediate state loading of react :)
   useEffect(() => {
-    products.forEach((product: product) => {
+    products.forEach((product) => {
       categories.push(product.data().category);
       setcleansedCategories([...new Set(categories)]); //[removing duplicates]
     });
@@ -108,7 +108,7 @@ function ProductList() {
         <div className="xl:col-span-1 h-full hidden xl:flex xl:flex-col start w-full space-y-6 ">
           <h1 className="font-semibold text-xl">Category</h1>
           <div className="w-full flex flex-col center space-y-2">
-            {cleansedCategories.map((category: string, i: number) => (
+            {cleansedCategories.map((category, i) => (
               <div key={i} className="flex w-full center ">
                 <Checkbox
                   value={category}
@@ -171,7 +171,7 @@ function ProductList() {
           >
             <h1 className="font-semibold text-xl">Category</h1>
             <div className="w-full flex flex-col center space-y-2">
-              {cleansedCategories.map((category: string, i: number) => (
+              {cleansedCategories.map((category, i) => (
                 <div key={i} className="flex w-full center ">
                   <Checkbox
                     checked={filters.includes(category)}
@@ -234,7 +234,7 @@ function ProductList() {
           <div className="h-full start flex flex-col col-span-4">
             {!loading ? (
               <div className="grid xl:grid-cols-3 lg:grid-cols-2 grid-cols-1 gap-y-12 gap-x-4 w-full place-items-center ">
-                {currentProducts.map((product: product, i: number) => {
+                {currentProducts.map((product, i) => {
                   if (
                     filters.length >= 1 &&
                     activePriceFilter.max !== null &&

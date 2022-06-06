@@ -4,11 +4,12 @@ import { useRecoilState } from "recoil";
 import { AddedToCartState, OpenCartState } from "../../atoms/AddedToCart";
 import CartItem from "../cart/CartItem";
 import { Popover } from "@nextui-org/react";
+import { product } from "../../typings";
+import { item } from "./../cart/CartItem";
 
 function Header() {
   const [addedtoCart, setAddedtoCart] = useRecoilState(AddedToCartState);
   const [openCart, setOpenCart] = useRecoilState(OpenCartState);
-  console.log(addedtoCart);
   return (
     <div className="header relative ">
       <Image alt="logo" src="/images/logo.png" height={25} width={159} />
@@ -35,7 +36,7 @@ function Header() {
           </Popover.Trigger>
           <Popover.Content className="xl:w-[30%] md:w-[50%] w-full rounded-none ">
             <div className="w-full pt-4 ">
-              {addedtoCart.map((product) => (
+              {addedtoCart.map((product: item) => (
                 <CartItem key={product.name} item={product} />
               ))}
               <div className="px-4 w-full flex center py-3">

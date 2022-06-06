@@ -4,7 +4,7 @@ import { product } from "../../typings";
 interface Props {
   item: item;
 }
-interface item {
+export interface item {
   name: string;
   image: { src: string; alt: string };
   price: number;

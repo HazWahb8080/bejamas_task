@@ -57,7 +57,12 @@ function Featured() {
           Photo of the day
         </span>
       </div>
-      <button className="add-to-cart-btn lg:hidden flex w-full center text-xl py-2  ">
+      <button
+        onClick={() => {
+          setAddedtoCart([...addedtoCart, featured]), setOpenCart(true);
+        }}
+        className="add-to-cart-btn lg:hidden flex w-full center text-xl py-2  "
+      >
         ADD TO CART
       </button>
       {/* about section */}
